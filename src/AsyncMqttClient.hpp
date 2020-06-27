@@ -89,13 +89,13 @@ class AsyncMqttClient {
 
   bool _connected;
   bool _connectPacketNotEnoughSpace;
-  bool _disconnectFlagged;
+  bool _disconnectOnPoll;
   bool _tlsBadFingerprint;
   uint32_t _lastClientActivity;
   uint32_t _lastServerActivity;
   uint32_t _lastPingRequestTime;
 
-  char _generatedClientId[18 + 1];  // esp8266-ab12cb // esp32-ab12cd34ef56
+  char _generatedClientId[18 + 1];  // esp8266-abc123 and esp32-abcdef123456 
   IPAddress _ip;
   const char* _host;
   bool _useIp;
