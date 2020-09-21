@@ -127,6 +127,13 @@ AsyncMqttClient& AsyncMqttClient::setPsk(const char* psk_ident, const char* psk)
   _client.setPsk(psk_ident, psk);
   return *this;
 }
+
+#ifdef ESP32
+AsyncMqttClient& AsyncMqttClient::setRootCa(const char* ca, size_t length) {
+  _client.setRootCa(ca, length);
+  return *this;
+}
+#endif
 #endif
 
 AsyncMqttClient& AsyncMqttClient::onConnect(AsyncMqttClientInternals::OnConnectUserCallback callback) {

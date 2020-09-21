@@ -68,6 +68,9 @@ class AsyncMqttClient {
   AsyncMqttClient& addServerFingerprint(const uint8_t* fingerprint);
   // setPsk causes a Pre-Shared Key cipher suite to be used
   AsyncMqttClient& setPsk(const char* psk_ident, const char* psk); // psk is hex string
+#if ESP32
+  AsyncMqttClient& setRootCa(const char* ca, size_t length);
+#endif
 #endif
 
   AsyncMqttClient& onConnect(AsyncMqttClientInternals::OnConnectUserCallback callback);
